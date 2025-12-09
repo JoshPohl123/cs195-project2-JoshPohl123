@@ -1,0 +1,102 @@
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.app-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Main flex container: sidebar + display */
+.app-container {
+  display: flex;
+  flex: 1; /* fills remaining height */
+  height: calc(100% - 60px); /* subtract header height approx */
+  overflow: hidden;
+}
+
+/* Sidebar / ControlPanel */
+.control-panel {
+  width: 250px;
+  height: 100%;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+  box-sizing: border-box;
+  background: #fafafa;
+  flex-shrink: 0;
+}
+
+/* PDF display area */
+.display-area {
+  flex: 1;
+  height: 100%;
+  overflow: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+}
+
+.display-area iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* optional, removes iframe border */
+}
+
+/* Placeholder when no PDF is loaded */
+.pdf-placeholder {
+  color: black;
+  padding: 20px;
+  text-align: center;
+}

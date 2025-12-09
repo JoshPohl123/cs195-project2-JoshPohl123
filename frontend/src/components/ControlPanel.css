@@ -1,0 +1,51 @@
+.control-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background: #fafafa;
+    max-width: 400px; /* optional */
+}
+
+.panel-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.panel-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.generate-btn {
+    background: #4a90e2;
+    color: black;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.generate-btn:hover {
+    background: #357dc4;
+}
+
+.upload-label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    color: black;
+}
+
+.file-input {
+    margin-top: 4px;
+}
