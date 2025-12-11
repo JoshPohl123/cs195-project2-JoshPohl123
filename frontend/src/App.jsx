@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
@@ -11,6 +11,9 @@ import PdfDisplay2 from './components/PdfDisplay2';
 
 function App() {
   const [pdfFile, setPdfFile] = useState(null);
+  const [displaySwitch, setDisplaySwitch] = useState(true);
+  const [whiteOut, setWhiteOut] = useState(false);
+  const [drawText, setDrawText] = useState(false);
 
   async function createPdf() {
     const pdfDoc = await PDFDocument.create();
@@ -58,11 +61,20 @@ function App() {
         <ControlPanel 
           createPdf={createPdf}
           handleFileUpload={handleFileUpload}
+          setDisplaySwitch={() => setDisplaySwitch(!displaySwitch)}
+          setWhiteOut={() => setWhiteOut(!whiteOut)}
+          whiteOut={whiteOut}
+          setDrawText={() => setDrawText(!drawText)}
+          drawText={drawText}
         />
 
         <div className="display-area">
           {pdfFile ? (
-            <PdfDisplay2 pdfBytes={pdfFile} />
+            displaySwitch ? (
+              <PdfDisplay2 key={"iframe"} pdfBytes={pdfFile} />
+            ) : (
+              <PdfDisplay key={"canvas"} pdfBytes={pdfFile} whiteOut={whiteOut} drawText={drawText} />
+            )
           ) : (
             <div className="pdf-placeholder">
               No PDF loaded

@@ -11,7 +11,7 @@ function PdfDisplay2({ pdfBytes }) {
         const url = URL.createObjectURL(blob);
         setPdfUrl(url);
         return () => URL.revokeObjectURL(url);
-    }, [pdfBytes]);
+    }, []);
 
     return (
         <div className="pdf-display">

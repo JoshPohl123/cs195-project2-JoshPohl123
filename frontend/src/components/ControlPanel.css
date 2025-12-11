@@ -49,3 +49,17 @@
 .file-input {
     margin-top: 4px;
 }
+
+.toggle-button {
+  border: 1px solid #4a90e2;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #4a90e2;
+  color: black;
+}
+
+.toggle-button.active {
+  background-color: green;
+  color: white;
+}
