@@ -63,3 +63,43 @@
   background-color: green;
   color: white;
 }
+
+.save-btn {
+    background: green;
+    color: black;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.close-btn {
+    background: red;
+    color: black;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.pdf-btn {
+    background: grey;
+    color: black;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: .8rem;
+    cursor: pointer;
+}
+
+.pdf-btn:hover {
+    background: #4a90e2;
+}
+
+.delete {
+    background: transparent;
+    padding: 0%;
+    border: none;
+}

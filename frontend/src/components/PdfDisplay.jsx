@@ -1,10 +1,12 @@
 import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, forwardRef, useImperativeHandle } from "react";
+import jsPDF from "jspdf";
+
 import "./PdfDisplay.css";
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
 
-export default function PdfDisplay({ pdfBytes, whiteOut, drawText }) {
+const PdfDisplay = forwardRef(({ pdfBytes, whiteOut, drawText }, ref) => {
   const containerRef = useRef();
   const startPos = useRef(null);
   const activeBox = useRef(null);
@@ -216,5 +218,34 @@ export default function PdfDisplay({ pdfBytes, whiteOut, drawText }) {
     loadPdf();
   }, [pdfBytes]);
 
+  // Expose generateEditedPdf to parent
+  useImperativeHandle(ref, () => ({
+      generateEditedPdf
+  }));
+
+  async function generateEditedPdf() {
+    const pdf = new jsPDF({ unit: "px", format: "a4" });
+
+    const pages = containerRef.current.querySelectorAll("canvas");
+
+    pages.forEach((canvas, i) => {
+      const img = canvas.toDataURL("image/png");
+
+      if (i > 0) pdf.addPage();
+
+      const w = pdf.internal.pageSize.getWidth();
+      const h = pdf.internal.pageSize.getHeight();
+
+      pdf.addImage(img, "PNG", 0, 0, w, h);
+    });
+
+    // Create a uint8 buffer instead of downloading
+    const newPdfBytes = pdf.output("arraybuffer");
+
+    return newPdfBytes;
+  }
+
   return <div ref={containerRef} className="pdf-container"></div>;
-}
+});
+
+export default PdfDisplay;
