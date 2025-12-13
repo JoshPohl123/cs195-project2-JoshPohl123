@@ -27,8 +27,8 @@ Briefly describe:
 
 | Type | Link |
 | :--- | :--- |
-| **Frontend (Deployed Site)** | [https://your-frontend-url.com](https://your-frontend-url.com) |
-| **Backend (API Base URL)** | [https://your-backend-url.com](https://your-backend-url.com) |
+| **Frontend (Deployed Site)** | [https://joshpohl123.github.io/cs195-project2-JoshPohl123/](https://joshpohl123.github.io/cs195-project2-JoshPohl123/) |
+| **Backend (API Base URL)** | [https://cs195-project2-joshpohl123.onrender.com](https://cs195-project2-joshpohl123.onrender.com) |
 
 > Test these in an incognito window before submission.
 
@@ -201,27 +201,48 @@ Document where/how you deployed:
 
 ### **Frontend**
 
-* Vercel / Netlify
+* Github Pages
+    * Add `base: "/your-repo-name/"` under plugins in `frontend/vite.config.js` 
+    * In `frontend/components/CanvasView.jsx` change `pdfjsLib.GlobalWorkerOptions.workerSrc` to = `"/your-repo-name/pdf.worker.min.js";` for proper import on pages
+    * In frontend/ terminal run `npm install --save-dev gh-pages`
+    * In `frontend/package.json` add bottom 2 lines:
+        ```
+        "scripts": {
+            "dev": "vite",
+            "build": "vite build",
+            "preview": "vite preview",
+            "predeploy": "npm run build",
+            "deploy": "gh-pages -d dist"
+        }
+        ```
+    * Then run `npm run deploy`
+    * Environment:
+        ```
+        VITE_API_URL=https://your-backend-url.com
+        ```
 
 ### **Backend**
 
-* Render / Railway
-* Note environment variable setup
+* Render
+* Environment:
+    ```
+    MONGO_URI=your_mongodb_url
+    CLIENT_ORIGIN=https://your-frontend-url.com
+    PORT=3001
+    ```
 
 
 ---
 
 ## 🎥 Video Walkthrough
 
-**Link to Loom/YouTube:**
-[https://your-video-link.com](https://your-video-link.com)
+**Link to YouTube:**
+[https://www.youtube.com/watch?v=eTDhAA4roqQ](https://www.youtube.com/watch?v=eTDhAA4roqQ)
 
-Include quick timestamps if you want extra professionalism:
-
-* **0:00–0:30** Overview
-* **0:30–1:30** Core features demo
-* **1:30–2:30** Advanced feature
-* **2:30–3:00** Technical challenge solved
+* **0:00–0:30** [Intro](https://www.youtube.com/watch?v=eTDhAA4roqQ)
+* **0:30–3:00** [Core/Simple features](https://www.youtube.com/watch?v=eTDhAA4roqQ&t=30s)
+* **3:00–9:00** [Advanced features](https://www.youtube.com/watch?v=eTDhAA4roqQ&t=180s)
+* **9:00–12:12** [Technical Overview of Advanced Features](https://www.youtube.com/watch?v=eTDhAA4roqQ&t=540s)
 
 ---
 
@@ -265,3 +286,4 @@ I didn't really recieve any advice from other students during the check-in since
 * I used ChatGPT for researching what type my pdfData/Bytes was for my MongoDB Schema
 * I used ChatGPT for how to handle converting PDFs into Bytes
 * I used ChatGPT for learning how to convert bytes into Blobs that can be displayed in URLs
+* I used ChatGPT to make a PDF for the demo
