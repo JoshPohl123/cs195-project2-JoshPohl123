@@ -2,11 +2,11 @@ import * as pdfjsLib from "pdfjs-dist/legacy/build/pdf";
 import { useEffect, useRef, forwardRef, useImperativeHandle } from "react";
 import jsPDF from "jspdf";
 
-import "./PdfDisplay.css";
+import "./CanvasView.css";
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
 
-const PdfDisplay = forwardRef(({ pdfBytes, whiteOut, drawText }, ref) => {
+const CanvasView = forwardRef(({ pdfBytes, whiteOut, drawText }, ref) => {
   const containerRef = useRef();
   const startPos = useRef(null);
   const activeBox = useRef(null);
@@ -248,4 +248,4 @@ const PdfDisplay = forwardRef(({ pdfBytes, whiteOut, drawText }, ref) => {
   return <div ref={containerRef} className="pdf-container"></div>;
 });
 
-export default PdfDisplay;
+export default CanvasView;

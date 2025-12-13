@@ -1,8 +1,8 @@
-import "./PdfDisplay2.css"
+import "./SimpleView.css"
 import { useEffect, useState } from "react";
 
 
-function PdfDisplay2({ pdfBytes }) {
+function SimpleView({ pdfBytes }) {
     const [pdfUrl, setPdfUrl] = useState(null);
 
     useEffect(() => {
@@ -24,4 +24,4 @@ function PdfDisplay2({ pdfBytes }) {
     );
 }
 
-export default PdfDisplay2;
+export default SimpleView;

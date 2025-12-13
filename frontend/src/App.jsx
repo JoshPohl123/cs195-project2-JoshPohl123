@@ -5,9 +5,9 @@ import './App.css'
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 import { saveAs } from 'file-saver';
 
-import PdfDisplay from './components/PdfDisplay';
+import CanvasView from './components/CanvasView';
 import ControlPanel from './components/ControlPanel';
-import PdfDisplay2 from './components/PdfDisplay2';
+import SimpleView from './components/SimpleView';
 import { getPDFIds, fetchPDFById, createPDF, updatePDF, deletePDF } from './api/pdfs';
 
 function App() {
@@ -153,9 +153,9 @@ function App() {
           )}
           {pdfFile ? (
             displaySwitch ? (
-              <PdfDisplay2 key={"iframe"} pdfBytes={pdfFile} />
+              <SimpleView key={"iframe"} pdfBytes={pdfFile} />
             ) : (
-              <PdfDisplay key={"canvas"} ref={pdfRef} pdfBytes={pdfFile} whiteOut={whiteOut} drawText={drawText} />
+              <CanvasView key={"canvas"} ref={pdfRef} pdfBytes={pdfFile} whiteOut={whiteOut} drawText={drawText} />
             )
           ) : (
             <div className="pdf-placeholder">

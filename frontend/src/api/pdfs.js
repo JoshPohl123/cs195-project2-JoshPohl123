@@ -26,7 +26,7 @@ export const fetchPDFById = async (id) => {
 
 /**
  * Create a new PDF
- * @param {FormData} pdfData - { pdfBytes: Buffer }
+ * @param {FormData} pdfData - { Buffer }
  */
 export const createPDF = async (pdfData) => {
   const response = await fetch(`${API_URL}/pdf`, {
@@ -42,7 +42,7 @@ export const createPDF = async (pdfData) => {
 /**
  * Update a PDF
  * @param {string} id - PDF ID
- * @param {FormData} updates - { pdfBytes: Buffer }
+ * @param {FormData} updates - { Buffer }
  */
 export const updatePDF = async (id, updates) => {
   const response = await fetch(`${API_URL}/pdf/${id}`, {
