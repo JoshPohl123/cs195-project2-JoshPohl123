@@ -6,8 +6,6 @@
 
 ## 🚀 Overview
 
-Briefly describe:
-
 * What your application does:
     * **File View**: View uploaded and saved PDF documents in a read-only iframe or an editable canvas.
     * **File Annotation**: Allows client-side editing of PDFs, including "White Out" and "Draw Text" tools.
