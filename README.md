@@ -28,7 +28,6 @@
 | **Frontend (Deployed Site)** | [https://joshpohl123.github.io/cs195-project2-JoshPohl123/](https://joshpohl123.github.io/cs195-project2-JoshPohl123/) |
 | **Backend (API Base URL)** | [https://cs195-project2-joshpohl123.onrender.com](https://cs195-project2-joshpohl123.onrender.com) |
 
-> Test these in an incognito window before submission.
 
 ---
 
